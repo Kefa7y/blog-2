@@ -2,3 +2,19 @@
 <form action="/posts/new" method="get">
     <input type="submit" value="Create Post" name="Submit">
 </form>
+<br><br>
+
+<table style="width:100%" border='1px solid black'>
+ <tr>
+   <th>id</th>
+   <th>Title</th>
+   <th>Body</th>
+ </tr>
+ <% @posts.each do |post| %>
+ <tr>
+   <td><%= post.id %></td>
+   <td><%= post.title %></td>
+   <td><%= post.body %></td>
+ </tr>
+ <% end %>
+</table>
