@@ -1,2 +1,11 @@
+<%= flash[:alert] %>
 <h1>Posts#new</h1>
-<p>Find me in app/views/posts/new.html.erb</p>
+<form action="/posts/create" method='post' target='post'>
+  <fieldset>
+  Title:<br>
+  <input type='text' name='post[title]'> <br>
+  Body:<br>
+  <textarea rows='10' cols='80' name='post[body]'></textarea> <br>
+  <input type='submit'> <br>
+</fieldset>
+</form>

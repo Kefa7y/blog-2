@@ -1,5 +1,6 @@
 class PostsController < ApplicationController
   before_action :find_post, only: [:edit, :update, :show, :delete]
+  skip_before_action :verify_authenticity_token
 
    def index
      @posts = Post.all
@@ -11,9 +12,11 @@ class PostsController < ApplicationController
 
    def create
      @post = Post.new
-     if @post.save(post_params)
+     @post.title= post_params[:title]
+     @post.body= post_params[:body]
+     if @post.save
        flash[:notice] = "Successfully created post!"
-       redirect_to post_path(@post)
+       redirect_to action: 'show', id: @post.id
      else
        flash[:alert] = "Error creating new post!"
        render :new
@@ -26,7 +29,7 @@ class PostsController < ApplicationController
    def update
      if @post.update_attributes(post_params)
        flash[:notice] = "Successfully updated post!"
-       redirect_to post_path(@posts)
+       redirect_to action: 'show', id: @post.id
      else
        flash[:alert] = "Error updating post!"
        render :edit
