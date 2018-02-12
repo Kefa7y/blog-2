@@ -1,2 +1,15 @@
 <h1>Posts#edit</h1>
-<p>Find me in app/views/posts/edit.html.erb</p>
+
+<%= flash[:alert] %>
+<form action="/" method="get">
+    <input type="submit" value="Return to index">
+</form>
+<form action="/posts/update" method='post' target='post'>
+  <fieldset>
+  Title:<br>
+  <input type='text' name='post[title]' value='hehe'> <br>
+  Body:<br>
+  <textarea rows='10' cols='80' name='post[body]'></textarea> <br>
+  <input type='submit'> <br>
+</fieldset>
+</form>

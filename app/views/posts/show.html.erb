@@ -1,5 +1,13 @@
 <%= flash[:notice] %>
+<form action="/" method="get">
+    <input type="submit" value="Return to index">
+</form>
 <h1>Posts#show</h1>
 id:<%= @post.id %>
 <h2><%= @post.title %></h2>
 <%= @post.body %>
+
+<%= form_tag("/posts/edit", method: "get") do %>
+  <%= hidden_field_tag(:id, @post.id) %>
+  <%= submit_tag("Edit Post") %>
+<% end %>
