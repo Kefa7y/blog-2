@@ -4,12 +4,12 @@
 <form action="/" method="get">
     <input type="submit" value="Return to index">
 </form>
-<form action="/posts/update" method='post' target='post'>
-  <fieldset>
-  Title:<br>
-  <input type='text' name='post[title]' value='hehe'> <br>
-  Body:<br>
-  <textarea rows='10' cols='80' name='post[body]'></textarea> <br>
-  <input type='submit'> <br>
-</fieldset>
-</form>
+
+<%= form_for(@post,url: {controller: 'posts' ,action: "update", }, method: "post") do |f| %>
+  <%= hidden_field_tag(:id, @post.id) %>
+  <%= label_tag("Title:") %><br>
+  <%= f.text_field(:title ) %><br>
+  <%= label_tag("Body:") %><br>
+  <%= f.text_area(:body, size: "80x10") %> <br>
+  <%= submit_tag("Edit Post") %>
+<% end %>
