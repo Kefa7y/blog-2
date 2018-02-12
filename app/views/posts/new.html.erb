@@ -3,7 +3,7 @@
 <%= flash[:alert] %>
 <form action="/" method="get">
     <input type="submit" value="Return to index">
-</form>
+</form><br>
 
 <%= form_tag("/posts/create", method: "post") do %>
   <%= label_tag("Title:") %><br>
