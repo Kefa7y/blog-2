@@ -1,2 +1,15 @@
-<h1>Users#signup</h1>
-<p>Find me in app/views/users/signup.html.erb</p>
+<%= flash[:notice] %>
+<%= flash[:alert] %>
+<form action="/" method="get">
+    <input type="submit" value="Return to index">
+</form>
+
+<h1>Users#Signup</h1><br>
+
+<%= form_tag("/users/create", method: "post") do %>
+  <%= label_tag("E-mail:") %><br>
+  <%= email_field(:user,:email) %><br>
+  <%= label_tag("Password:") %><br>
+  <%= password_field(:user,:password) %> <br>
+  <%= submit_tag("Sign up") %>
+<% end %>

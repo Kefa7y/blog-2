@@ -19,6 +19,10 @@ Rails.application.routes.draw do
 
   post 'posts/destroy'
 
+  post 'users/api_login'
+
+  post 'users/create'
+
   root 'posts#index'
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end

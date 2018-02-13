@@ -3,6 +3,19 @@ class UsersController < ApplicationController
   def signup
   end
 
+  def create
+    u = User.new
+    u.email = post_params[:password]
+    u.password = post_params[:email]
+    if u.save
+      flash[:notice] = "Successfully created user"
+      redirect_to action: 'login'
+    else
+      flash[:alert] = "Error creating new user!"
+      render :signup
+    end
+  end
+
   def login
   end
 
@@ -24,8 +37,6 @@ class UsersController < ApplicationController
         render :login
       end
     end
-
-
   end
 
   private
