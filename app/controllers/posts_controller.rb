@@ -42,7 +42,8 @@ class PostsController < ApplicationController
    end
 
    def show
-     @comments = Comment.where(user_id:session[:user_id], post_id:@post.id)
+     comments = Comment.where( post_id:@post.id)
+     @comments= comments.joins(:user).select(:id,:post_id,:user_id,:body,:email)
    end
 
    def delete

@@ -16,11 +16,13 @@ author:<%= @author%>
 <br>
 <table style="width:80%" border='1px solid black'>
   <tr>
+    <th>Author</th>
     <th>Comments</th>
     <th>Actions</th>
   </tr>
 <% @comments.each do |comment| %>
 <tr>
+  <td><%= comment.email%></td>
   <td><%= comment.body%></td>
   <% if comment.user_id == session[:user_id] %>
     <td>
@@ -51,5 +53,5 @@ author:<%= @author%>
     <%= submit_tag("Create comment") %>
   </td>
   <% end %>
-<tr>
+</tr>
 </table>
