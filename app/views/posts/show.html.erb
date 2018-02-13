@@ -1,11 +1,11 @@
 <h1>Posts#show</h1>
 
-id:<%= @post.id %>
+author:<%= @author%>
 <h2><%= @post.title %></h2>
 <%= @post.body %>
-
+<% if @post.user_id == session[:user_id] %>
 <%= form_tag("/posts/edit", method: "get") do %>
-  <%= hidden_field_tag(:id, @post.id) %>
-  <br><br>
+  <%= hidden_field_tag(:id, @post.id) %><br>
   <%= submit_tag("Edit Post") %>
+<% end %>
 <% end %>
