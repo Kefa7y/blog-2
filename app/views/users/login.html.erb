@@ -1,2 +1,14 @@
-<h1>Users#login</h1>
-<p>Find me in app/views/users/login.html.erb</p>
+<%= flash[:notice] %>
+<form action="/" method="get">
+    <input type="submit" value="Return to index">
+</form>
+
+<h1>Users#login</h1><br>
+
+<%= form_tag("/users/api_login", method: "post") do %>
+  <%= label_tag("E-mail:") %><br>
+  <%= email_field(:user,:email) %><br>
+  <%= label_tag("Password:") %><br>
+  <%= password_field(:user,:password, size: "80x10") %> <br>
+  <%= submit_tag("Create Post") %>
+<% end %>
