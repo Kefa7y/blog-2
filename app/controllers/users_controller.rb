@@ -5,8 +5,8 @@ class UsersController < ApplicationController
 
   def create
     u = User.new
-    u.email = post_params[:password]
-    u.password = post_params[:email]
+    u.email = post_params[:email]
+    u.password = post_params[:password]
     if u.save
       flash[:notice] = "Successfully created user"
       redirect_to action: 'login'
@@ -20,17 +20,17 @@ class UsersController < ApplicationController
   end
 
   def profile
-    @user = session[:user]
+    @user = u = User.find_by id: session[:user_id]
   end
 
   def api_login
     u = User.find_by email: post_params[:email]
-    if(u == null)
+    if(u.nil?)
       flash[:alert] = "User not found!"
       render :login
     else
       if(u.password == post_params[:password])
-        session[:user] = u
+        session[:user_id] = u[:id]
         redirect_to action: 'profile'
       else
         flash[:alert] = "Password not correct!"
