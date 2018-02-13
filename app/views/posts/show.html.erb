@@ -9,3 +9,38 @@ author:<%= @author%>
   <%= submit_tag("Edit Post") %>
 <% end %>
 <% end %>
+<br>
+<table style="width:80%" border='1px solid black'>
+  <tr>
+    <th>Comments</th>
+    <th>Actions</th>
+  </tr>
+<% @comments.each do |comment| %>
+<tr>
+  <td><%= comment.body%></td>
+  <% if comment.user_id == session[:user_id] %>
+    <td>
+      <%= form_tag("/comments/update", method: "post") do %>
+        <%= hidden_field_tag(:id, @post.id) %>
+        <%= submit_tag("Edit comment") %>
+      <% end %>
+      <%= form_tag("/comments/delete", method: "post") do %>
+        <%= hidden_field_tag(:id, @post.id) %>
+        <%= submit_tag("Delete comment") %>
+      <% end %>
+    </td>
+    <% end %>
+</tr>
+<% end %>
+<tr>
+  <%= form_tag("/comments/create", method: "post") do %>
+    <td>
+      <%= text_area_tag(:body) %> <br>
+    </td>
+    <%= hidden_field_tag(:post_id, @post.id) %>
+    <td>
+    <%= submit_tag("Create comment") %>
+  </td>
+  <% end %>
+<tr>
+</table>

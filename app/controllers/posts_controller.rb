@@ -42,6 +42,7 @@ class PostsController < ApplicationController
    end
 
    def show
+     @comments = Comment.where(user_id:session[:user_id], post_id:@post.id)
    end
 
    def destroy
