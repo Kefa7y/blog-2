@@ -8,6 +8,10 @@ author:<%= @author%>
   <%= hidden_field_tag(:id, @post.id) %><br>
   <%= submit_tag("Edit Post") %>
 <% end %>
+<%= form_tag("/posts/delete", method: "post") do %>
+  <%= hidden_field_tag(:id, @post.id) %><br>
+  <%= submit_tag("Delete Post") %>
+<% end %>
 <% end %>
 <br>
 <table style="width:80%" border='1px solid black'>

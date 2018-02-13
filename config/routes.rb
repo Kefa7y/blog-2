@@ -17,7 +17,7 @@ Rails.application.routes.draw do
 
   post 'posts/update'
 
-  post 'posts/destroy'
+  post 'posts/delete'
 
   post 'users/api_login'
 

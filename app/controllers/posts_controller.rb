@@ -45,10 +45,10 @@ class PostsController < ApplicationController
      @comments = Comment.where(user_id:session[:user_id], post_id:@post.id)
    end
 
-   def destroy
+   def delete
      if @post.destroy
        flash[:notice] = "Successfully deleted post!"
-       redirect_to posts_path
+       redirect_to root_path
      else
        flash[:alert] = "Error updating post!"
      end
