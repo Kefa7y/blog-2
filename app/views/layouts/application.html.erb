@@ -9,6 +9,20 @@
   </head>
 
   <body>
+  <%= form_tag("/", method: "get") do %>
+    <%= submit_tag("Return to index") %>
+  <% end %>
+    <% if(logged_in?) %>
+    <%= form_tag("/users/logout", method: "post") do %>
+      <%= submit_tag("Log out") %>
+      <% end %>
+    <% else %>
+    <%= form_tag("/users/login", method: "get") do %>
+      <%= submit_tag("Log in") %>
+      <% end %>
+    <% end %>
+    <%= flash[:notice] %>
+    <%= flash[:alert] %>
     <%= yield %>
   </body>
 </html>

@@ -1,4 +1,5 @@
 class UsersController < ApplicationController
+  skip_before_action :require_login, except: [:profile]
 
   def signup
   end
@@ -17,6 +18,11 @@ class UsersController < ApplicationController
   end
 
   def login
+  end
+
+  def logout
+    session.delete(:user_id)
+    redirect_to root_path
   end
 
   def profile

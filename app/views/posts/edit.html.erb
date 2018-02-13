@@ -1,10 +1,5 @@
 <h1>Posts#edit</h1>
 
-<%= flash[:alert] %>
-<form action="/" method="get">
-    <input type="submit" value="Return to index">
-</form><br>
-
 <%= form_for(@post,url: {controller: 'posts' ,action: "update", }, method: "post") do |f| %>
   <%= hidden_field_tag(:id, @post.id) %>
   <%= label_tag("Title:") %><br>
