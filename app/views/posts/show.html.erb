@@ -25,11 +25,16 @@ author:<%= @author%>
   <% if comment.user_id == session[:user_id] %>
     <td>
       <%= form_tag("/comments/update", method: "post") do %>
-        <%= hidden_field_tag(:id, @post.id) %>
+        <%= hidden_field_tag(:id, comment.id) %>
+        <%= text_area_tag(:body) %>
+        <%= hidden_field_tag(:post_id, @post.id) %>
         <%= submit_tag("Edit comment") %>
       <% end %>
+    </td>
+    <td>
       <%= form_tag("/comments/delete", method: "post") do %>
-        <%= hidden_field_tag(:id, @post.id) %>
+        <%= hidden_field_tag(:id, comment.id) %>
+        <%= hidden_field_tag(:post_id, @post.id) %>
         <%= submit_tag("Delete comment") %>
       <% end %>
     </td>
@@ -39,7 +44,7 @@ author:<%= @author%>
 <tr>
   <%= form_tag("/comments/create", method: "post") do %>
     <td>
-      <%= text_area_tag(:body) %> <br>
+      <%= text_area_tag(:body) %>
     </td>
     <%= hidden_field_tag(:post_id, @post.id) %>
     <td>
