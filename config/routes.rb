@@ -1,9 +1,9 @@
 Rails.application.routes.draw do
-  get 'users/signup'
+  get 'users/new'
 
-  get 'users/login'
+  get 'session/new'
 
-  get 'users/profile'
+  get 'users/show'
 
   get 'posts/index'
 
@@ -19,11 +19,11 @@ Rails.application.routes.draw do
 
   post 'posts/delete'
 
-  post 'users/api_login'
+  post 'session/create'
 
   post 'users/create'
 
-  post 'users/logout'
+  post 'session/destroy'
 
   post 'comments/create'
 
