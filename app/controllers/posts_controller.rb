@@ -11,12 +11,7 @@ class PostsController < ApplicationController
 
    def create
      u = User.find_by id: session[:user_id]
-     post = u.posts.create(title:post_params[:title], body: post_params[:body])
-     tags_names = post_params[:tags].split(',')
-     tags_names.each do |tag|
-       post.tags.create(name: tag)
-     end
-
+     post = u.posts.create(post_params)
      if post.save
        flash[:notice] = "Successfully created post!"
        redirect_to action: 'show', id: post.id
