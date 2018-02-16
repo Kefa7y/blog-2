@@ -17,7 +17,7 @@ Rails.application.routes.draw do
 
   post 'posts/update'
 
-  post 'posts/delete'
+  post 'posts/destory'
 
   post 'session/create'
 
@@ -29,7 +29,7 @@ Rails.application.routes.draw do
 
   post 'comments/update'
 
-  post 'comments/delete'
+  post 'comments/destroy'
 
   root 'posts#index'
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
