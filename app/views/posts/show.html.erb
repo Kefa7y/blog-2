@@ -4,11 +4,11 @@ author:<%= @author%>
 <h2><%= @post.title %></h2>
 <%= @post.body %>
 <% if @post.user_id == session[:user_id] %>
-<%= form_tag("/posts/edit", method: "get") do %>
+<%= form_tag(posts_edit_path, method: "get") do %>
   <%= hidden_field_tag(:id, @post.id) %><br>
   <%= submit_tag("Edit Post") %>
 <% end %>
-<%= form_tag("/posts/delete", method: "post") do %>
+<%= form_tag(posts_delete_path, method: "post") do %>
   <%= hidden_field_tag(:id, @post.id) %><br>
   <%= submit_tag("Delete Post") %>
 <% end %>
@@ -26,7 +26,7 @@ author:<%= @author%>
   <td><%= comment.body%></td>
   <% if comment.user_id == session[:user_id] %>
     <td>
-      <%= form_tag("/comments/update", method: "post") do %>
+      <%= form_tag(comments_update_path, method: "post") do %>
         <%= hidden_field_tag(:id, comment.id) %>
         <%= text_area_tag(:body) %>
         <%= hidden_field_tag(:post_id, @post.id) %>
@@ -34,7 +34,7 @@ author:<%= @author%>
       <% end %>
     </td>
     <td>
-      <%= form_tag("/comments/delete", method: "post") do %>
+      <%= form_tag(comments_delete_path, method: "post") do %>
         <%= hidden_field_tag(:id, comment.id) %>
         <%= hidden_field_tag(:post_id, @post.id) %>
         <%= submit_tag("Delete comment") %>
@@ -44,7 +44,7 @@ author:<%= @author%>
 </tr>
 <% end %>
 <tr>
-  <%= form_tag("/comments/create", method: "post") do %>
+  <%= form_tag(comments_create_path, method: "post") do %>
     <td>
       <%= text_area_tag(:body) %>
     </td>
