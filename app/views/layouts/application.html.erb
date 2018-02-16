@@ -12,6 +12,9 @@
   <%= form_tag(root_path, method: "get") do %>
     <%= submit_tag("Return to index") %>
   <% end %>
+  <%= form_tag(tags_index_path, method: "get") do %>
+    <%= submit_tag("View all tags") %>
+  <% end %>
     <% if(logged_in?) %>
     <%= form_tag(session_destroy_path, method: "post") do %>
       <%= submit_tag("Log out") %>
