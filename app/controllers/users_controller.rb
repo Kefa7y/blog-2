@@ -1,6 +1,6 @@
 class UsersController < ApplicationController
   skip_before_action :require_login, except: [:profile]
-
+  
   def signup
   end
 

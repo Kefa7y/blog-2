@@ -1,20 +1,21 @@
 <h1>Posts#index</h1>
 <form action="/posts/new" method="get">
-    <input type="submit" value="Create Post">
+  <input type="submit" value="Create Post">
 </form>
 <br><br>
 
 <table style="width:100%" border='1px solid black'>
- <tr>
-   <th>Author</th>
-   <th>Title</th>
-   <th>Body</th>
- </tr>
- <% @posts.each do |post| %>
- <tr>
-   <td><%= post.email%></td>
-   <td><%= link_to post.title,posts_show_path(id:post.id)%></td>
-   <td><%= post.body %></td>
- </tr>
- <% end %>
+  <tr>
+    <th>Author</th>
+    <th>Title</th>
+    <th>Body</th>
+  </tr>
+  <% @posts.each do |post| %>
+    <tr>
+      <td><%= post.user.email%>
+      </td>
+      <td><%= link_to post.title,posts_show_path(id:post.id)%></td>
+      <td><%= post.body %></td>
+    </tr>
+  <% end %>
 </table>
