@@ -1,5 +1,5 @@
 class PostsController < ApplicationController
-  before_action :find_post, only: [edit update show destroy]
+  before_action :find_post, only: [:edit,:update,:show, :destroy]
   skip_before_action :require_login, only: [:index]
 
   def index
@@ -65,7 +65,7 @@ class PostsController < ApplicationController
     else
       flash[:alert] = 'Error deleting post!'
       respond_to do |format|
-        format.html { redirect_to posts_show_path(@post.id)}
+        format.html { redirect_to posts_show_path(@post.id) }
         format.json { render status: 403 }
       end
     end
