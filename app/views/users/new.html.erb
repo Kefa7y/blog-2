@@ -1,6 +1,6 @@
-<h1>Users#Signup</h1><br>
+<h1>Users#new</h1><br>
 
-<%= form_tag("/users/create", method: "post") do %>
+<%= form_tag(users_create_path, method: "post") do %>
   <%= label_tag("E-mail:") %><br>
   <%= email_field(:user,:email) %><br>
   <%= label_tag("Password:") %><br>

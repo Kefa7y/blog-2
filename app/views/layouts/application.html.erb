@@ -9,15 +9,15 @@
   </head>
 
   <body>
-  <%= form_tag("/", method: "get") do %>
+  <%= form_tag(root_path, method: "get") do %>
     <%= submit_tag("Return to index") %>
   <% end %>
     <% if(logged_in?) %>
-    <%= form_tag("/users/logout", method: "post") do %>
+    <%= form_tag(session_path_destroy, method: "post") do %>
       <%= submit_tag("Log out") %>
       <% end %>
     <% else %>
-    <%= form_tag("/users/login", method: "get") do %>
+    <%= form_tag(session_path_new, method: "get") do %>
       <%= submit_tag("Log in") %>
       <% end %>
     <% end %>
