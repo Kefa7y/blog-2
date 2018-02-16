@@ -5,13 +5,13 @@ class UsersController < ApplicationController
   end
 
   def create
-    u = User.new
-    if u.save(post_params)
+    u = User.new(post_params)
+    if u.save
       flash[:notice] = "Successfully created user"
-      redirect_to action: 'login'
+      redirect_to session_new_path
     else
       flash[:alert] = "Error creating new user!"
-      render :signup
+      render :new
     end
   end
 
