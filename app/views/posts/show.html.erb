@@ -1,6 +1,6 @@
 <h1>Posts#show</h1>
 
-author:<%= @author%>
+author :<%= @post.user.email%>
 <h2><%= @post.title %></h2>
 <%= @post.body %>
 <% if @post.user_id == session[:user_id] %>

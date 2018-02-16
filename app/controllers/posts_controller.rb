@@ -1,6 +1,5 @@
 class PostsController < ApplicationController
   before_action :find_post, only: [:edit, :update, :show, :delete]
-  before_action :find_author, only: [:show]
   skip_before_action :require_login, only: [:index]
 
    def index
@@ -60,9 +59,5 @@ class PostsController < ApplicationController
 
    def find_post
      @post = Post.find(params[:id])
-   end
-
-   def find_author
-     @author = User.find(@post.user_id)[:email]
    end
  end
