@@ -8,7 +8,7 @@ author :<%= @post.user.email%>
   <%= hidden_field_tag(:id, @post.id) %><br>
   <%= submit_tag("Edit Post") %>
 <% end %>
-<%= form_tag(posts_delete_path, method: "post") do %>
+<%= form_tag(posts_destroy_path, method: "post") do %>
   <%= hidden_field_tag(:id, @post.id) %><br>
   <%= submit_tag("Delete Post") %>
 <% end %>
@@ -34,7 +34,7 @@ author :<%= @post.user.email%>
       <% end %>
     </td>
     <td>
-      <%= form_tag(comments_delete_path, method: "post") do %>
+      <%= form_tag(comments_destroy_path, method: "post") do %>
         <%= hidden_field_tag(:id, comment.id) %>
         <%= hidden_field_tag(:post_id, @post.id) %>
         <%= submit_tag("Delete comment") %>

@@ -17,7 +17,7 @@ Rails.application.routes.draw do
 
   post 'posts/update'
 
-  post 'posts/destory'
+  post 'posts/destroy'
 
   post 'session/create'
 

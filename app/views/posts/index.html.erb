@@ -1,7 +1,7 @@
 <h1>Posts#index</h1>
-<form action="/posts/new" method="get">
-  <input type="submit" value="Create Post">
-</form>
+<%= form_tag(posts_new_path, method: "get") do %>
+  <%= submit_tag("Create Post") %>
+<% end %>
 <br><br>
 
 <table style="width:100%" border='1px solid black'>

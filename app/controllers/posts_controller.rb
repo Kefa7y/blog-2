@@ -1,5 +1,5 @@
 class PostsController < ApplicationController
-  before_action :find_post, only: [:edit, :update, :show, :delete]
+  before_action :find_post, only: [:edit, :update, :show, :destroy]
   skip_before_action :require_login, only: [:index]
 
    def index
@@ -42,7 +42,7 @@ class PostsController < ApplicationController
    def show
    end
 
-   def delete
+   def destroy
      if @post.destroy
        flash[:notice] = "Successfully deleted post!"
        redirect_to root_path
