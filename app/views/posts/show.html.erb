@@ -32,8 +32,6 @@ author :<%= @post.user.email%>
         <%= hidden_field_tag(:post_id, @post.id) %>
         <%= submit_tag("Edit comment") %>
       <% end %>
-    </td>
-    <td>
       <%= form_tag(comments_destroy_path, method: "post") do %>
         <%= hidden_field_tag(:id, comment.id) %>
         <%= hidden_field_tag(:post_id, @post.id) %>
@@ -44,14 +42,12 @@ author :<%= @post.user.email%>
 </tr>
 <% end %>
 <tr>
+  <td>
   <%= form_tag(comments_create_path, method: "post") do %>
-    <td>
       <%= text_area_tag(:body) %>
-    </td>
     <%= hidden_field_tag(:post_id, @post.id) %>
-    <td>
     <%= submit_tag("Create comment") %>
-  </td>
   <% end %>
+</td>
 </tr>
 </table>

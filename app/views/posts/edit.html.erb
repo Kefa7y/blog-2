@@ -1,15 +1,6 @@
 <h1>Posts#edit</h1>
 
-<%= form_for(@post,url: {controller: 'posts' ,action: "update", }, method: "post") do |f| %>
-  <%= hidden_field_tag(:id, @post.id) %>
-  <%= label_tag("Title:") %><br>
-  <%= f.text_field(:title ) %><br>
-  <%= label_tag("Body:") %><br>
-  <%= f.text_area(:body, size: "80x10") %> <br><br>
-  <%= submit_tag("Edit") %>
-<% end %>
-
-<%= form_for(@post,posts_update_path, method: "post") do |f| %>
+<%= form_for(@post,url: posts_update_path, method: "post") do |f| %>
   <%= hidden_field_tag(:id, @post.id) %>
   <%= label_tag("Title:") %><br>
   <%= f.text_field(:title ) %><br>
