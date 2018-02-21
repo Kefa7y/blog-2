@@ -5,7 +5,7 @@
   <%= text_field(:post,:title) %><br>
   <%= label_tag("Body:") %><br>
   <%= text_area(:post,:body, size: "80x10") %> <br>
-  <%= label_tag("Tags seperated by commas:") %><br>
+  <%= label_tag("Tags seperated by space:") %><br>
   <%= text_area(:post,:tags) %><br>
   <%= submit_tag("Create Post") %>
 <% end %>

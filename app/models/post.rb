@@ -5,7 +5,7 @@ class Post < ApplicationRecord
 
   def tags=(tag_list)
     tags.clear
-    tag_list.strip.split(',').each do |ctag|
+    tag_list.strip.split(' ').each do |ctag|
       tag = Tag.find_by(name: ctag)
       if tag.nil?
         tags.build(name: ctag)
