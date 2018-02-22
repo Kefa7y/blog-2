@@ -31,9 +31,10 @@ class SessionController < ApplicationController
 
   def destroy
     session.delete(:user_id)
+    puts request.format.xml?
     respond_to do |format|
-      format.html { redirect_to root_path }
-      format.json { render status:200 }
+      format.html { redirect_to root_path , turbolinks: false}
+      format.json { head :ok }
     end
   end
 

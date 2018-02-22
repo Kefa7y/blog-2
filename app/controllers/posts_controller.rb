@@ -54,7 +54,7 @@ class PostsController < ApplicationController
 
   def show
     respond_to do |format|
-      format.html 
+      format.html
       format.json { render json: @post }
     end
   end
